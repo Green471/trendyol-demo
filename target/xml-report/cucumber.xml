@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="23.535">
+    <testcase classname="Sistem, herhangi bir kullanıcının geçerli kimlik bilgileriyle kaydolmasına ve alisveris yapmasina izin vermelidir" name="TC_001_Kullanici trendyol' üye olabilmeli ve ürün aramasi yapabilmeli ve kasaya gidebilmeli." time="23.177">
+        <system-out>
+            <![CDATA[Given Kullanıcı "trendyol_url" anasayfasına gider...........................passed
+Then imleci einlogen dropdown üzrine getirir................................passed
+Then einmelden dropdown'a tiklar............................................passed
+Then Kullanici "Hallo/Willkommen," yazisini ekranda görmeli.................passed
+Then email text box gecerli e-mail girer....................................passed
+Then password text box ına geçerli password girilir.........................passed
+Then the user Männlich butonuna tiklar......................................passed
+And kullanici checkbox'a tiklar.............................................passed
+Then kullanici registration butonuna tiklar.................................passed
+Then kullanici "Konto" yazisini görmeli.....................................passed
+Then kullanici searcbox'a "kinder" aramasi yapar............................passed
+Then kullanici begendigi ürünleri fav'a ekler...............................passed
+Then Kullanici yas araligini secer..........................................passed
+Then kullanici inden waren korb butonuna tiklar.............................passed
+Then araba urun sepetine tiklar.............................................passed
+Then Kullanici cupon kodunu text box'a girer ve Zur Kasse butonuna tiklar...passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>
