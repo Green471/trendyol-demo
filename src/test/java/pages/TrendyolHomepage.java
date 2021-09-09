@@ -10,11 +10,11 @@ public class TrendyolHomepage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-        @FindBy(xpath = "(//div[@class='icon-container'])[1]")
+        @FindBy(xpath ="(//p[@class='link-text'])[1]")
         public WebElement einlogenIcon;
 
         @FindBy(xpath = "//div[@class='signup-button']")
-        public WebElement einmelden;
+        public WebElement anmelden;
 
         @FindBy(xpath = "//*[text()='Hallo/Willkommen']")
         public WebElement willcommenText;
@@ -28,10 +28,16 @@ public class TrendyolHomepage {
         @FindBy(xpath = "//*[text()='Männlich']")
         public WebElement gender;
 
-        @FindBy (xpath = "(//label[@class='q-label'])[3]")
+        @FindBy (xpath = "//div[@class='marketing-checkbox']")
         public WebElement checkbox;
 
-        @FindBy(xpath = "//button[@type='submit']")
+        @FindBy (xpath = "//span[@class='special-text']")
+        public WebElement checkbox1;
+
+        @FindBy(xpath = "/html/body/div[6]/div/div[1]/i")
+        public WebElement datenschutz;
+
+        @FindBy(xpath = "(//*[text()='Registrieren'])[2]")
         public WebElement registerButton;
 
         @FindBy(xpath = "(//p[@class='link-text'])[1]")
@@ -40,8 +46,14 @@ public class TrendyolHomepage {
         @FindBy(xpath = "//input[@class='search-box']")
         public WebElement searcbox;
 
-        @FindBy(xpath = "(//img[@class='p-card-img'])[2]")
-        public WebElement fav;
+        @FindBy(xpath = "(//div[@class='fvrt-btn-wrppr'])[1]")
+        public WebElement fav01;
+
+        @FindBy(xpath = "(//div[@class='fvrt-btn-wrppr'])[2]")
+        public WebElement fav02;
+
+        @FindBy(xpath = "//div[@class='image-container']")
+        public WebElement kleid;
 
         @FindBy(xpath = "//div[@class='sp-itm']")
         public WebElement age;

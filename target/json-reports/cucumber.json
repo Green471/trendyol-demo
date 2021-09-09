@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-08-30T16:14:55.831Z",
+        "start_timestamp": "2021-09-08T23:15:57.158Z",
         "line": 3,
         "name": "TC_001_Kullanici trendyol\u0027 üye olabilmeli ve ürün aramasi yapabilmeli ve kasaya gidebilmeli.",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 7476881600,
+              "duration": 5875169200,
               "status": "passed"
             },
             "line": 5,
@@ -31,11 +31,11 @@
           },
           {
             "result": {
-              "duration": 371021700,
+              "duration": 524995900,
               "status": "passed"
             },
             "line": 6,
-            "name": "imleci einlogen dropdown üzrine getirir",
+            "name": "Imleci einlogen dropdown üzrine getirir",
             "match": {
               "location": "stepdefinitions.MyStepdefs.imleciEinlogenDropdownÜzrineGetirir()"
             },
@@ -43,11 +43,11 @@
           },
           {
             "result": {
-              "duration": 2081097000,
+              "duration": 2301744200,
               "status": "passed"
             },
             "line": 7,
-            "name": "einmelden dropdown\u0027a tiklar",
+            "name": "Einmelden dropdown\u0027a tiklar",
             "match": {
               "location": "stepdefinitions.MyStepdefs.einmeldenDropdownATiklar()"
             },
@@ -55,7 +55,7 @@
           },
           {
             "result": {
-              "duration": 241439800,
+              "duration": 4997300,
               "status": "passed"
             },
             "line": 8,
@@ -73,59 +73,59 @@
           },
           {
             "result": {
-              "duration": 671588100,
+              "duration": 585610500,
               "status": "passed"
             },
             "line": 9,
-            "name": "email text box gecerli e-mail girer",
+            "name": "E-mail text box\u0027na gecerli e-mail girer",
             "match": {
-              "location": "stepdefinitions.MyStepdefs.emailTextBoxGecerliEMailGirer()"
+              "location": "stepdefinitions.MyStepdefs.eMailTextBoxNaGecerliEMailGirer()"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 228334500,
+              "duration": 146014400,
               "status": "passed"
             },
             "line": 10,
-            "name": "password text box ına geçerli password girilir",
+            "name": "Password text box\u0027ına geçerli password girilir",
             "match": {
-              "location": "stepdefinitions.MyStepdefs.password_text_box_ına_geçerli_password_girilir()"
+              "location": "stepdefinitions.MyStepdefs.passwordTextBoxInaGeçerliPasswordGirilir()"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 171654200,
+              "duration": 239997500,
               "status": "passed"
             },
             "line": 11,
-            "name": "the user Männlich butonuna tiklar",
+            "name": "Kullanici Männlich butonuna tiklar",
             "match": {
-              "location": "stepdefinitions.MyStepdefs.the_user_männlich_butonuna_tiklar()"
+              "location": "stepdefinitions.MyStepdefs.kullaniciMännlichButonunaTiklar()"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 164393700,
+              "duration": 257037900,
               "status": "passed"
             },
             "line": 12,
-            "name": "kullanici checkbox\u0027a tiklar",
+            "name": "Kullanici checkbox\u0027a tiklar",
             "match": {
-              "location": "stepdefinitions.MyStepdefs.kullanici_checkbox_a_tiklar()"
+              "location": "stepdefinitions.MyStepdefs.kullaniciCheckboxATiklar()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 204358000,
+              "duration": 209480300,
               "status": "passed"
             },
             "line": 13,
-            "name": "kullanici registration butonuna tiklar",
+            "name": "Kullanici registration butonuna tiklar",
             "match": {
               "location": "stepdefinitions.MyStepdefs.kullaniciRegistrationButonunaTiklar()"
             },
@@ -133,11 +133,11 @@
           },
           {
             "result": {
-              "duration": 188999300,
+              "duration": 991400,
               "status": "passed"
             },
             "line": 14,
-            "name": "kullanici \"Konto\" yazisini görmeli",
+            "name": "Kullanici \"Konto\" yazisini görmeli",
             "match": {
               "arguments": [
                 {
@@ -151,11 +151,11 @@
           },
           {
             "result": {
-              "duration": 1732146200,
+              "duration": 1163180600,
               "status": "passed"
             },
             "line": 15,
-            "name": "kullanici searcbox\u0027a \"kinder\" aramasi yapar",
+            "name": "Kullanici searcbox\u0027a \"kinder\" aramasi yapar",
             "match": {
               "arguments": [
                 {
@@ -169,22 +169,22 @@
           },
           {
             "result": {
-              "duration": 746008700,
+              "duration": 1098999200,
               "status": "passed"
             },
-            "line": 16,
-            "name": "kullanici begendigi ürünleri fav\u0027a ekler",
+            "line": 17,
+            "name": "Kullanici begendigi ürüne tiklar",
             "match": {
-              "location": "stepdefinitions.MyStepdefs.kullaniciBegendigiÜrünleriFavAEkler()"
+              "location": "stepdefinitions.MyStepdefs.kullaniciBegendigiÜrüneTiklar()"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 999300,
+              "duration": 1511098000,
               "status": "passed"
             },
-            "line": 17,
+            "line": 18,
             "name": "Kullanici yas araligini secer",
             "match": {
               "location": "stepdefinitions.MyStepdefs.kullaniciYasAraliginiSecer()"
@@ -193,11 +193,11 @@
           },
           {
             "result": {
-              "duration": 3388633100,
+              "duration": 222007600,
               "status": "passed"
             },
-            "line": 18,
-            "name": "kullanici inden waren korb butonuna tiklar",
+            "line": 19,
+            "name": "Kullanici inden waren korb butonuna tiklar",
             "match": {
               "location": "stepdefinitions.MyStepdefs.kullaniciIndenWarenKorbButonunaTiklar()"
             },
@@ -205,22 +205,22 @@
           },
           {
             "result": {
-              "duration": 4694137800,
+              "duration": 2226936300,
               "status": "passed"
             },
-            "line": 19,
-            "name": "araba urun sepetine tiklar",
+            "line": 20,
+            "name": "Urun sepetine tiklar",
             "match": {
-              "location": "stepdefinitions.MyStepdefs.arabaUrunSepetineTiklar()"
+              "location": "stepdefinitions.MyStepdefs.urunSepetineTiklar()"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 565753700,
+              "duration": 401000100,
               "status": "passed"
             },
-            "line": 20,
+            "line": 21,
             "name": "Kullanici cupon kodunu text box\u0027a girer ve Zur Kasse butonuna tiklar",
             "match": {
               "location": "stepdefinitions.MyStepdefs.kullaniciCuponKodunuTextBoxAGirerVeZurKasseButonunaTiklar()"

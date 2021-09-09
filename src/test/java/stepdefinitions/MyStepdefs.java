@@ -1,18 +1,15 @@
 package stepdefinitions;
 
 import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 import org.junit.Assert;
-import org.junit.Before;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-
-
-
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-
+import org.openqa.selenium.support.ui.Select;
 import pages.TrendyolHomepage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
@@ -23,150 +20,137 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class MyStepdefs {
-    TrendyolHomepage page = new TrendyolHomepage();
-    Driver driver;
 
+    TrendyolHomepage page= new TrendyolHomepage();
+    Actions actions= new Actions(Driver.getDriver());
 
-    @Before
-    public void implisitlywait() {
-        Driver.getDriver().manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
-    }
-
-    Actions actions = new Actions(Driver.getDriver());
-    Faker faker = new Faker();
-
+    Faker faker= new Faker();
     @Given("Kullanıcı {string} anasayfasına gider")
     public void kullanıcıAnasayfasınaGider(String url) {
         Driver.getDriver().get(ConfigurationReader.getPropery(url));
-        Driver.getDriver().manage().window().maximize();
+    }
+
+
+
+    @Then("Imleci einlogen dropdown üzrine getirir")
+    public void imleciEinlogenDropdownÜzrineGetirir()  {
+        Driver.waitForVisibility(page.einlogenIcon,5);
+        actions.moveToElement(page.einlogenIcon).build().perform();
 
     }
 
-    @Then("imleci einlogen dropdown üzrine getirir")
-    public void imleciEinlogenDropdownÜzrineGetirir() {
-        actions.moveToElement(page.einlogenIcon).perform();
-    }
+    @Then("Einmelden dropdown'a tiklar")
+    public void einmeldenDropdownATiklar()  {
+        Driver.waitForVisibility(page.einlogenIcon,5);
+        page.anmelden.click();
 
-    @Then("einmelden dropdown'a tiklar")
-    public void einmeldenDropdownATiklar() {
-        page.einmelden.click();
     }
 
     @Then("Kullanici {string} yazisini ekranda görmeli")
-    public void kullaniciYazisiniEkrandaGörmeli(String text) {
+    public void kullaniciYazisiniEkrandaGörmeli(String str) {
 
-        Assert.assertEquals(text, page.willcommenText.getText());
 
+        System.out.println(str);
+        Assert.assertEquals("Hallo/Willkommen,",str);
     }
 
-    @Then("email text box gecerli e-mail girer")
-    public void emailTextBoxGecerliEMailGirer() {
-        // page.email.sendKeys(ConfigurationReader.getPropery("gecerli_email"));
-        page.email.sendKeys(faker.name().username() + ConfigurationReader.getPropery("gecerli_email"));
+    @Then("E-mail text box'na gecerli e-mail girer")
+    public void eMailTextBoxNaGecerliEMailGirer()  {
+
+        page.email.sendKeys(faker.name().username()+ConfigurationReader.getPropery("gecerli_email"));
     }
 
-    @Then("password text box ına geçerli password girilir")
-    public void password_text_box_ına_geçerli_password_girilir() {
-        page.password.sendKeys(ConfigurationReader.getPropery("gecerli_password"));
+    @Then("Password text box'ına geçerli password girilir")
+    public void passwordTextBoxInaGeçerliPasswordGirilir() {
+        page.password.sendKeys(ConfigurationReader.getPropery("gecerli_pass"));
     }
 
-    @Then("the user Männlich butonuna tiklar")
-    public void the_user_männlich_butonuna_tiklar() {
+    @Then("Kullanici Männlich butonuna tiklar")
+    public void kullaniciMännlichButonunaTiklar() throws InterruptedException {
+
         page.gender.click();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+
+      //  Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
     }
 
-    @Then("kullanici checkbox'a tiklar")
-    public void kullanici_checkbox_a_tiklar() {
-        if (!page.checkbox.isSelected()) {
-            page.checkbox.click();
-        } else
-            System.out.println("Checkbox secili");
+    @And("Kullanici checkbox'a tiklar")
+    public void kullaniciCheckboxATiklar() throws InterruptedException {
+
+       actions.moveToElement(page.checkbox).perform();
+       page.checkbox.click();
+
+       //actions.moveToElement(page.checkbox1).perform();
+       // actions.moveToElement(driver.findElement(By.linkText("Scans"))).click().perform();
+      //  actions.moveToElement(Driver.getDriver().findElement(By.xpath("//div[@name='personal-data-error']"))).perform();
+      // page.checkbox1.click();
     }
 
-
-    @Then("kullanici registration butonuna tiklar")
-    public void kullaniciRegistrationButonunaTiklar() throws InterruptedException {
+    @Then("Kullanici registration butonuna tiklar")
+    public void kullaniciRegistrationButonunaTiklar() {
+        Driver.waitForVisibility(page.registerButton,5);
         page.registerButton.click();
 
-       // Driver.getDriver().manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-        Driver.getDriver().manage().timeouts().pageLoadTimeout(3,TimeUnit.SECONDS).implicitlyWait(3,TimeUnit.SECONDS);
-
     }
 
-    @Then("kullanici {string} yazisini görmeli")
+    @Then("Kullanici {string} yazisini görmeli")
     public void kullaniciYazisiniGörmeli(String konto) {
-        Boolean isEnable = page.textKonto.isEnabled();
 
-        Boolean isDisplayed = page.textKonto.isDisplayed();
-        if (isEnable) {
-            System.out.println("is enabled");
-        } else
-            System.out.println("is not enabled");
-
-
-        if (isDisplayed) {
-            System.out.println("is Displayed");
-        } else
-            System.out.println("is not Displayed");
-
-
-
+        Assert.assertTrue(konto,true);
     }
 
-    @Then("kullanici searcbox'a {string} aramasi yapar")
-    public void kullaniciSearcboxAAramasiYapar(String arama) throws InterruptedException {
-        page.searcbox.sendKeys(arama, Keys.ENTER);
-        Driver.getDriver().manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+    @Then("Kullanici searcbox'a {string} aramasi yapar")
+    public void kullaniciSearcboxAAramasiYapar(String kinder) {
+        page.searcbox.sendKeys(kinder,Keys.ENTER);
     }
 
-    @Then("kullanici begendigi ürünleri fav'a ekler")
-    public void kullaniciBegendigiÜrünleriFavAEkler() throws InterruptedException {
-     page.fav.click();
-
-
-
-
+    @Then("Kullanici begendigi ürünleri fav'a ekler")
+    public void kullaniciBegendigiÜrünleriFavAEkler() {
+        page.fav01.click();
+        page.fav02.click();
     }
 
+
+
+    @Then("Kullanici begendigi ürüne tiklar")
+    public void kullaniciBegendigiÜrüneTiklar() {
+        page.kleid.click();
+        Set<String > winHand=Driver.getDriver().getWindowHandles();
+        List<String> list= new ArrayList<>();
+        list.addAll(winHand);
+
+        Driver.getDriver().switchTo().window(list.get(1));
+    }
 
     @Then("Kullanici yas araligini secer")
-    public void kullaniciYasAraliginiSecer() throws InterruptedException {
-        System.out.println("yas araligi secildi");
+    public void kullaniciYasAraliginiSecer() {
+        page.age.click();
     }
 
-    @Then("kullanici inden waren korb butonuna tiklar")
-    public void kullaniciIndenWarenKorbButonunaTiklar() throws InterruptedException {
-        Set<String> windowHandles = Driver.getDriver().getWindowHandles();
-        List<String> ls=new ArrayList<>();
-        ls.addAll(windowHandles);
-        Driver.getDriver().switchTo().window(ls.get(1));
-        System.out.println(ls.get(1));
-        Thread.sleep(3000);
+    @Then("Kullanici inden waren korb butonuna tiklar")
+    public void kullaniciIndenWarenKorbButonunaTiklar() {
+        Driver.waitForVisibility(page.sepet,5);
         page.sepet.click();
-
     }
 
-
-
-
-    @Then("araba urun sepetine tiklar")
-    public void arabaUrunSepetineTiklar() throws InterruptedException {
+    @Then("Urun sepetine tiklar")
+    public void urunSepetineTiklar() {
+        Driver.waitForVisibility(page.urunSepeti,5);
         page.urunSepeti.click();
-        Thread.sleep(2000);
     }
 
     @Then("Kullanici cupon kodunu text box'a girer ve Zur Kasse butonuna tiklar")
-    public void kullaniciCuponKodunuTextBoxAGirerVeZurKasseButonunaTiklar() throws InterruptedException {
-        page.codeTextBox.click();
+    public void kullaniciCuponKodunuTextBoxAGirerVeZurKasseButonunaTiklar() {
         page.codeTextBox.sendKeys(ConfigurationReader.getPropery("cupon_code"));
+        Driver.waitForVisibility(page.kasse,5);
         page.kasse.click();
-
     }
+
+
 }
-
-
-
-
-
-
-
